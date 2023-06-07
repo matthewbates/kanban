@@ -16,7 +16,7 @@ export const ColumnContainer = styled.div`
 export const ColumnTitle = styled.div`
   display: flex;
   padding: 8px;
-  border-bottom: 2px solid ${({ status }) => status};
+  border-bottom: 2px solid ${({ color }) => color};
   font-size: 14px;
 `;
 

@@ -18,8 +18,6 @@ export default function Column({
 }) {
   const [newTask, setNewTask] = useState("");
 
-  console.log(name, status, items);
-
   const postNewTask = async (e) => {
     e.preventDefault();
     try {

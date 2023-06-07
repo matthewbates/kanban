@@ -17,7 +17,22 @@ export default function KanbanBoard() {
       try {
         const response = await axios.get("http://localhost:8001/tasks");
         if (response.status === 200) {
-          console.log(response);
+          const fetchedTasks = response.data.tasks;
+          console.log(response, fetchedTasks);
+          setColumns((prevColumns) => {
+            const updatedColumns = [...prevColumns];
+            fetchedTasks.forEach((task) => {
+              const { status } = task;
+              const column = updatedColumns.find((col) => col.id === status);
+              if (column) {
+                column.items.push({
+                  id: task.id,
+                  name: task.name,
+                });
+              }
+            });
+            return updatedColumns;
+          });
         }
       } catch (error) {
         console.log(error);
@@ -94,7 +109,7 @@ export default function KanbanBoard() {
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
-        {columns.map(({ id, name, status, items }, index) => (
+        {columns.map(({ id, name, status, items }) => (
           <Column
             key={id}
             droppableId={id}
