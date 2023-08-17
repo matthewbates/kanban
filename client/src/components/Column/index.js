@@ -5,7 +5,6 @@ import { ColumnContainer, ColumnTitle, ColumnItems } from "./ColumnElements";
 import Task from "../Task";
 
 export default function Column({ column, tasks }) {
-  console.log(column.id);
   return (
     <ColumnContainer>
       <ColumnTitle status={column.status}>{column.title}</ColumnTitle>
