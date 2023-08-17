@@ -6,5 +6,6 @@ export const TaskContainer = styled.div`
   margin-bottom: 0.5em;
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-family: "Open Sans";
   background: #ffffff;
 `;
