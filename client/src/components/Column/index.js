@@ -12,7 +12,6 @@ import {
 import Task from "../Task";
 
 export default function Column({ column, tasks }) {
-  console.log(column.taskIds.length);
   return (
     <ColumnContainer>
       <ColumnTitle status={column.status}>

@@ -22,6 +22,8 @@ export default function KanbanBoard() {
     const start = initialData.columns[source.droppableId];
     const finish = initialData.columns[destination.droppableId];
 
+    console.log(start, finish);
+
     if (start === finish) {
       // creates a new taskIds array
       const newTaskIds = Array.from(start.taskIds);
@@ -46,7 +48,7 @@ export default function KanbanBoard() {
       return;
     }
 
-    // moving from one list to another
+    // moving from one column to another
     const startTaskIds = Array.from(start.taskIds);
     startTaskIds.splice(source.index, 1);
     const newStart = {
@@ -70,14 +72,10 @@ export default function KanbanBoard() {
   };
 
   useEffect(() => {
-    // Save the initialData to localStorage
-    console.log("Saving data to localStorage");
     localStorage.setItem("kanbanData", JSON.stringify(initialData));
   }, [initialData]);
 
   useEffect(() => {
-    // Load the initialData from localStorage
-    console.log("Loading data from localStorage");
     const savedData = localStorage.getItem("kanbanData");
     if (savedData) {
       setInitialData(JSON.parse(savedData));
